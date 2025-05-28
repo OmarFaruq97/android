@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class Medicine {
 
     private int id;
-    private String name;
+    private String medicineName;
     private String generic;     //android
     private String type;
     private int quantity;    //android
@@ -23,12 +23,12 @@ public class Medicine {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMedicineName() {
+        return medicineName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
     }
 
     public String getGeneric() {

@@ -14,15 +14,19 @@ import retrofit2.http.Path;
 
 public interface ApiService {
 
-    @POST("medicine")
+    // Correct endpoint for saving medicine
+    @POST("medicine/add")
     Call<Medicine> saveMedicine(@Body Medicine medicine);
 
-    @GET("medicine")
+    // Correct endpoint for fetching all medicines
+    @GET("medicine/all")
     Call<List<Medicine>> getAllMedicine();
 
-    @PUT("employee/{id}")
+    // Correct endpoint for updating medicine
+    @PUT("medicine/update/{id}")
     Call<Medicine> updateMedicine(@Path("id") int id, @Body Medicine medicine);
 
-    @DELETE("medicine/{id}")
+    // Correct endpoint for deleting medicine
+    @DELETE("medicine/delete/{id}")
     Call<Void> deleteMedicine(@Path("id") int id);
 }

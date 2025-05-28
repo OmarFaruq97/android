@@ -63,10 +63,11 @@ public class AddMedicineActivity extends AppCompatActivity {
                             Medicine.class);
             medicineId = medicine.getId();
 
-            textMedicineName.setText(medicine.getName());
+            textMedicineName.setText(medicine.getMedicineName());
             textGeneric.setText(medicine.getGeneric());
             textType.setText(medicine.getType());
-            numberQuantity.setText(medicine.getQuantity());
+//            numberQuantity.setText(medicine.getQuantity());
+            numberQuantity.setText(String.valueOf(medicine.getQuantity()));
             decimalPrice.setText(String.valueOf(medicine.getPrice()));
 
             btnSave.setText(R.string.update);
@@ -94,7 +95,8 @@ public class AddMedicineActivity extends AppCompatActivity {
         if (isEditMode) {
             medicine.setId(medicineId);
         }
-        medicine.setName(name);
+
+        medicine.setMedicineName(name);
         medicine.setGeneric(generic);
         medicine.setType(type);
         medicine.setQuantity(quantity);
@@ -108,7 +110,7 @@ public class AddMedicineActivity extends AppCompatActivity {
             call = apiService.saveMedicine(medicine);
         }
 
-        call.enqueue(new Callback<Medicine>() {
+        call.enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<Medicine> call, Response<Medicine> response) {
                 if (response.isSuccessful()) {
