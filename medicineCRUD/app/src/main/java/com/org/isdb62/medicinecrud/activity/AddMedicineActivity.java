@@ -66,7 +66,6 @@ public class AddMedicineActivity extends AppCompatActivity {
             textMedicineName.setText(medicine.getMedicineName());
             textGeneric.setText(medicine.getGeneric());
             textType.setText(medicine.getType());
-//            numberQuantity.setText(medicine.getQuantity());
             numberQuantity.setText(String.valueOf(medicine.getQuantity()));
             decimalPrice.setText(String.valueOf(medicine.getPrice()));
 
