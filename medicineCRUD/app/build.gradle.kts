@@ -33,7 +33,6 @@ android {
 
 dependencies {
     implementation(libs.converter.gson)
-    // https://mvnrepository.com/artifact/org.projectlombok/lombok
     implementation(libs.lombok)
     implementation(libs.retrofit)
     implementation(libs.appcompat)
