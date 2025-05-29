@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -105,7 +106,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
 
     public static class MedicineViewHolder extends RecyclerView.ViewHolder {
         TextView medicineNameText, genericText, quantityNumber, priceDecimal, typeText;
-        Button updateButton, deleteButton;
+        ImageButton updateButton, deleteButton;
 
         public MedicineViewHolder(@NonNull View itemView) {
             super(itemView);

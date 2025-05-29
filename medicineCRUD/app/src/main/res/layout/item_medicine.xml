@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp">
@@ -8,86 +9,102 @@
     <!-- Medicine Name -->
     <TextView
         android:id="@+id/textMedicineName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
         android:text="Medicine Name"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Generic Name -->
-    <TextView
-        android:id="@+id/textGeneric"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Generic Name"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/textMedicineName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Type -->
-    <TextView
-        android:id="@+id/textType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Type"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/textGeneric"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Quantity -->
-    <TextView
-        android:id="@+id/numberQuantity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Quantity"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/textType"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Price -->
-    <TextView
-        android:id="@+id/decimalPrice"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Price"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/numberQuantity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Update / Delete Buttons -->
+    <TextView
+        android:id="@+id/textGeneric"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
+        android:text="Generic Name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textMedicineName" />
+
+    <TextView
+        android:id="@+id/textType"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
+        android:text="Type"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textGeneric" />
+
+    <TextView
+        android:id="@+id/numberQuantity"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
+        android:text="Quantity"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textType" />
+
+    <TextView
+        android:id="@+id/decimalPrice"
+        android:layout_width="252dp"
+        android:layout_height="30dp"
+        android:text="Price"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberQuantity" />
+
     <LinearLayout
         android:id="@+id/buttonLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="124dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/decimalPrice"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textMedicineName"
+        app:layout_constraintVertical_bias="0.531">
 
-        <Button
+        <!-- Edit Icon Button -->
+        <ImageButton
             android:id="@+id/updateButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="Update" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Edit"
+            android:src="@drawable/baseline_update_24" />
 
-        <Button
+        <!-- Delete Icon Button -->
+        <ImageButton
             android:id="@+id/deleteButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="Delete" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Delete"
+            android:src="@drawable/baseline_delete_24" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
