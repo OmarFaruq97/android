@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -15,6 +16,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import com.org.isdb62.service_brodcast_reciever.service.BackgroundService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button startServiceButton = findViewById(R.id.btn_start_service);
-        Button stopServiceButton = findViewById(R.id.btn_stop_service);
-        Button sendServiceButton = findViewById(R.id.btn_send_broadcast);
+        Button startServiceButton = findViewById(R.id.start_service_button);
+        Button stopServiceButton = findViewById(R.id.stop_service_button);
+        Button sendBroadcastButton = findViewById(R.id.send_broadcast_button);
 
         receiver = new BroadcastReceiver() {
             @Override
@@ -47,7 +50,43 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
         LocalBroadcastManager.getInstance(this)
                 .registerReceiver(receiver, new IntentFilter(CUSTOM_BROADCAST_ACTION));
+
+        startServiceButton.setOnClickListener(v -> {
+            Intent serviceIntent = new Intent(MainActivity.this, BackgroundService.class);
+            startService(serviceIntent);
+            Toast.makeText(MainActivity.this, "Service Started", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Attempting to start BackgroundService");
+        });
+
+        stopServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent serviceIntent = new Intent(MainActivity.this, BackgroundService.class);
+                stopService(serviceIntent);
+                Toast.makeText(MainActivity.this, "Service Stopped", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Attempting to stop BackgroundService");
+            }
+        });
+
+        sendBroadcastButton.setOnClickListener(v -> {
+            Intent broadcastIntent = new Intent(CUSTOM_BROADCAST_ACTION);
+            broadcastIntent.putExtra("message", "Hello from MainActivity!");
+
+            LocalBroadcastManager.getInstance(MainActivity.this).sendBroadcast(broadcastIntent);
+            Toast.makeText(MainActivity.this, "Custom Broadcast Sent", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Custom Broadcast sent from MainActivity");
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver);
+        Log.d(TAG, "MainActivity destroyed, BroadcastReceiver unregistered. ");
+
+
     }
 }

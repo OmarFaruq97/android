@@ -11,7 +11,7 @@
 
     <!-- Start Service Button -->
     <Button
-        android:id="@+id/btn_start_service"
+        android:id="@+id/start_service_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Start Service"
@@ -23,24 +23,24 @@
 
     <!-- Stop Service Button -->
     <Button
-        android:id="@+id/btn_stop_service"
+        android:id="@+id/stop_service_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Stop Service"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_start_service"
+        app:layout_constraintTop_toBottomOf="@id/start_service_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"/>
 
     <!-- Send Custom Broadcast Button -->
     <Button
-        android:id="@+id/btn_send_broadcast"
+        android:id="@+id/send_broadcast_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Send Custom Broadcast"
+        android:text="Send Broadcast Button"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_stop_service"
+        app:layout_constraintTop_toBottomOf="@id/stop_service_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"/>

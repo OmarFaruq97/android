@@ -32,7 +32,7 @@ public class BackgroundService extends Service {
                 Log.d(TAG, "Service Running... Counter: " + counter);
                 Toast.makeText(BackgroundService.this,
                         "Service runnig: " + counter, Toast.LENGTH_SHORT).show();
-                handler.postDelayed(this, 5000);
+                handler.postDelayed(this, 5000);  //after 5 sec repeat
             }
         };
     }
