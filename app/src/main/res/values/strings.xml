@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">searchable_Application</string>
+    <string name="go_to_grid_view_activity">GridView</string>
+    <string name="go_to_list_view_activity">ListView</string>
+</resources>
